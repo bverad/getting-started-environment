@@ -31,7 +31,7 @@ pipeline {
                     }
 
                     echo "Searching vulnerabilities"
-                    sh "trivy image --format template --template '@/home/jenkins/templates/html.tpl' --ignore-unfixed --severity CRITICAL --exit-code 1 -o trivy-report.html 172.22.128.188:8000/cats-api:latest"
+                    sh "trivy image --format template --template '@/html.tpl' --ignore-unfixed --severity CRITICAL --exit-code 1 -o trivy-report.html 172.22.128.188:8000/cats-api:latest"
 
                 }
             }
