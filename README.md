@@ -94,7 +94,7 @@ kubectl apply -f jenkins-account.yanl
 ```
 - obtener id de secret asociado al nuevo usuario a través del siguiente comando.
 ```
-kubectl serviceaccount jenkins -o yaml
+kubectl get serviceaccounts/jenkins -o yaml
 ```
 ![Kubernetes service account secret](./img/kubernetes-service-account-secret.png?raw=true "Kubernetes account secret")<br /><br />
 En este caso corresponde a el valor <b>jenkins-token-pm5dp</b>.

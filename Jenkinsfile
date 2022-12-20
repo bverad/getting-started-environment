@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 withCredentials(bindings: [string(credentialsId: 'kubernetes-jenkins-server-account', variable: 'api_token')]) {
-                    sh "kubectl --token ${api_token} --server https://192.168.65.2:55264 --insecure-skip-tls-verify=true apply -f '2. deployment-openapi-app-jenkins.yaml' "
+                    sh "kubectl --token ${api_token} --server https://192.168.65.2:56403 --insecure-skip-tls-verify=true apply -f '2. deployment-openapi-app-jenkins.yaml' "
                 }
 
           }
