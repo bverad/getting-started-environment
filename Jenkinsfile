@@ -40,7 +40,7 @@ pipeline {
         stage('Registry'){
             steps{
                 sh 'echo $NEXUS_CREDENTIALS_PSW | docker login 172.21.111.214:8000 -u $NEXUS_CREDENTIALS_USR --password-stdin'
-                sh 'docker push 172.22.119.181:8000/cats-api:latest'
+                sh 'docker push 172.21.111.214:8000/cats-api:latest'
             }
         }
 
