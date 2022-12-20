@@ -31,7 +31,7 @@ pipeline {
                     }
 
                     echo "Searching vulnerabilities"
-                    sh "trivy image --format template --template '@/html.tpl' --ignore-unfixed --severity CRITICAL --exit-code 1 -o trivy-report.html 172.22.128.188:8000/cats-api:latest"
+                    sh "trivy image --format template --template '@/html.tpl' --ignore-unfixed --severity CRITICAL --exit-code 1 -o trivy-report.html 172.21.111.214:8000/cats-api:latest"
 
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
 
         stage('Registry'){
             steps{
-                sh 'echo $NEXUS_CREDENTIALS_PSW | docker login 172.22.119.181:8000 -u $NEXUS_CREDENTIALS_USR --password-stdin'
+                sh 'echo $NEXUS_CREDENTIALS_PSW | docker login 172.21.111.214:8000 -u $NEXUS_CREDENTIALS_USR --password-stdin'
                 sh 'docker push 172.22.119.181:8000/cats-api:latest'
             }
         }
